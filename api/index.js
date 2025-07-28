@@ -66,7 +66,6 @@ app.listen(process.env.PORT, () => {
     console.log('Server Running on Port ' + process.env.PORT);
 
 })
-//app.listen(process.env.PORT,()=>console.log(`Running on port ${process.env.PORT}`))
 module.exports= (req,res)=>  app(req,res)
 
 
