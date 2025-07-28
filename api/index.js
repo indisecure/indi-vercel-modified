@@ -2,6 +2,7 @@ const path = require('path')
 const dotenv = require('dotenv')
 dotenv.config()
 const express = require('express')
+const serverless=require('serverless-http')
 const cors = require('cors')
 const connectDB = require('./db')
 connectDB()
@@ -66,7 +67,8 @@ app.listen(process.env.PORT, () => {
     console.log('Server Running on Port ' + process.env.PORT);
 
 })
-module.exports= (req,res)=>  app(req,res)
+//module.exports= (req,res)=>  app(req,res)
+module.exports=serverless(app)
 
 
 
