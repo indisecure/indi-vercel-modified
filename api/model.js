@@ -2,15 +2,15 @@ const mongoose = require('mongoose')
 const carSchema = new mongoose.Schema({
     model: {
         type: String,
-        reuired: true
+        required: true
     },
     color: {
         type: String,
-        reuired: true
+        required: true
     },
     price: {
         type: Number,
-        reuired: true
+        required: true
     },
 }, {
     timestamps: true
