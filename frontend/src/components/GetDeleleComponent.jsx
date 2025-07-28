@@ -2,9 +2,10 @@ import { useEffect, useState } from "react"
 import axios from "axios"
 import { Link } from "react-router-dom"
 import { Table } from "react-bootstrap"
-function GetDeleteComponent() {       
-    const [cars, setCars] = useState([])  
-        const getAllCars = async () => {
+
+function GetDeleteComponent() {
+    const [cars, setCars] = useState([])
+    const getAllCars = async () => {
         try {
             const response = await axios.get('/car')
             setCars(response.data)
@@ -14,7 +15,7 @@ function GetDeleteComponent() {
     }
     useEffect(() => {
         getAllCars()
-    }, [])    
+    }, [])
 
     const deleteCar = async (id) => {
         try {
@@ -40,11 +41,19 @@ function GetDeleteComponent() {
                 </thead>
                 <tbody>
                     {cars.map(car => (
-                        <tr key={car._id}>                            
+                        <tr key={car._id}>
                             <td>{car.model}</td>
-                             <td>{car.color}</td>
+                            <td>{car.color}</td>
                             <td>{car.price}</td>
-                            <td>{car.createdAt}</td>
+                            <td>{new Date(car.createdAt).toLocaleString('en-IN', {
+                                day: '2-digit',
+                                month: 'short',
+                                year: 'numeric',
+                                hour: '2-digit',
+                                minute: '2-digit',
+                                second: '2-digit',
+                                hour12: true,
+                            })}</td>
                             <td>
                                 <div style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
                                     <Link to={`/edit/${car._id}`}>
