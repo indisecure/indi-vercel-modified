@@ -3,6 +3,7 @@ import axios from "axios"
 import { Link } from "react-router-dom"
 import { Table } from "react-bootstrap"
 function GetDeleteComponent() {   
+    const date= new Date(" ")
     const [cars, setCars] = useState([])  
 
         const getAllCars = async () => {
@@ -45,7 +46,7 @@ function GetDeleteComponent() {
                             <td>{car.model}</td>
                              <td>{car.color}</td>
                             <td>{car.price}</td>
-                            <td>{new Date(car.createdAt).toLocaleTimeString()}{new Date(car.createdAt).toDateString())}</td>
+                            <td>{car.createdAt}</td>
                             <td>
                                 <div style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
                                     <Link to={`/edit/${car._id}`}>
