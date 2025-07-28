@@ -2,10 +2,8 @@ import { useEffect, useState } from "react"
 import axios from "axios"
 import { Link } from "react-router-dom"
 import { Table } from "react-bootstrap"
-function GetDeleteComponent() {   
-    const date= new Date(" ")
+function GetDeleteComponent() {       
     const [cars, setCars] = useState([])  
-
         const getAllCars = async () => {
         try {
             const response = await axios.get('/car')
